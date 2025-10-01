@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nestjs-hello-world
+  labels:
+    app: nestjs-hello-world
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nestjs-hello-world
+  template:
+    metadata:
+      labels:
+        app: nestjs-hello-world
+    spec:
+      containers:
+        - name: nestjs-hello-world
+          image: nestjs-hello-world
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: production
