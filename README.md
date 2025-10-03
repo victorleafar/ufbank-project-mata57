@@ -5,13 +5,13 @@ Aqui serão armazenadas as entregas e atividades realizadas ao longo do curso po
 
 ---
 
-## 📌 Entregas
+## Entregas
 
 - **Entrega 1:** [NestJS (Hello World em Docker + Kubernetes)](https://github.com/victorleafar/ufbank-project-mata57/tree/main/nestjs-hello-world-main)
 
 ---
 
-## 👥 Integrantes da Equipe
+## Integrantes da Equipe
 
 - Emanuel Vieira dos Santos  
 - Eric Bispo da Silva  
