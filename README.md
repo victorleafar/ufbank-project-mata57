@@ -8,6 +8,7 @@ Aqui serão armazenadas as entregas e atividades realizadas ao longo do curso po
 ## Entregas
 
 - **Entrega 1:** [NestJS (Hello World em Docker + Kubernetes)](https://github.com/victorleafar/ufbank-project-mata57/tree/main/nestjs-hello-world-main)
+- **Entrega 2:** [Estruturação Arquitetural (Clean Architecture + Modularização)](https://github.com/victorleafar/ufbank-project-mata57/tree/main/nestjs-clean-architecture)
 
 ---
 
