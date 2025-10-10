@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nestjs-clean-architecture
+  labels:
+    app: nestjs-clean-architecture
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nestjs-clean-architecture
+  template:
+    metadata:
+      labels:
+        app: nestjs-clean-architecture
+    spec:
+      containers:
+        - name: nestjs-clean-architecture
+          image: nestjs-clean-architecture:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: "production"

@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "assets": [
+      "**/*.hbs"
+    ],
+    "watchAssets": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es2017",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+  },
+  "generateOptions": {
+    "spec": true,
+    "path": "src",
+    "watch": true
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "nestjs-clean-architecture",
+  "version": "1.0.0",
+  "description": "A NestJS project structured with Clean Architecture principles.",
+  "main": "src/main.ts",
+  "scripts": {
+    "start": "nest start",
+  "start:dev": "nest start --watch",
+    "build": "nest build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint . --ext .ts"
+  },
+  "dependencies": {
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0",
+    "@nestjs/platform-express": "^9.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.0.0",
+    "class-validator": "^0.13.2",
+    "class-transformer": "^0.5.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^9.0.0",
+    "@nestjs/schematics": "^9.0.0",
+    "typescript": "^4.5.4",
+    "jest": "^27.0.0",
+    "ts-jest": "^27.0.0",
+    "@types/jest": "^27.0.0",
+    "@types/node": "^16.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-prettier": "^4.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
