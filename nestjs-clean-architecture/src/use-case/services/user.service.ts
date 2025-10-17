@@ -1,7 +1,7 @@
 import { Injectable, Inject, NotFoundException } from '@nestjs/common';
 import { User } from '@src/domain/entities/user.entity';
 import { IUserRepository } from '@src/domain/repositories/user.repository.interface';
-import { v4 as uuidv4 } from 'uuid';
+import { randomUUID } from 'crypto';
 
 @Injectable()
 export class UserService {
@@ -12,7 +12,7 @@ export class UserService {
 
     async createUser(name: string, cpf: string, email: string, phone: string): Promise<User> {
         const user = new User(
-            uuidv4(),
+            randomUUID(),
             name,
             cpf,
             email,
