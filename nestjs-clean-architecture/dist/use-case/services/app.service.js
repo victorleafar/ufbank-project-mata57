@@ -12,6 +12,14 @@ let AppService = class AppService {
     getHello() {
         return 'Hello World from Clean Architecture!';
     }
+    getHealth(isHealth) {
+        if ((isHealth.length) >= 3) {
+            isHealth.forEach(index => {
+                console.log('Health check ' + index);
+            });
+        }
+        return 'API Saudável';
+    }
 };
 AppService = __decorate([
     (0, common_1.Injectable)()

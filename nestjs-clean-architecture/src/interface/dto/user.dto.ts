@@ -8,6 +8,14 @@ export class CreateUserDto {
 }
 
 
+export class UpdateUserDto {
+    name?: string;
+    cpf?: string;
+    email?: string;
+    phone?: string;
+}
+
+
 export class UserResponseDto {
     id!: string;
     name!: string;

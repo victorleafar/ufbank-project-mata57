@@ -1,8 +1,9 @@
-import { User } from "../entities/user.entity";
+import { User } from '@src/domain/entities/user.entity';
 
 export interface IUserRepository {
+    save(user: User): Promise<User>;
     findAll(): Promise<User[]>;
     findById(id: string): Promise<User | null>;
-    save(user: User): Promise<User>;
     delete(id: string): Promise<void>;
+    update(id: string, data: Partial<User>): Promise<User>;
 }

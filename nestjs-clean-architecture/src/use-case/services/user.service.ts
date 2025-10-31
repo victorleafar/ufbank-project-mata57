@@ -33,6 +33,14 @@ export class UserService {
         return user;
     }
 
+    async updateUser(id: string, data: Partial<User>): Promise<User> {
+        const user = await this.userRepository.findById(id);
+        if (!user) throw new NotFoundException('Usuário não encontrado');
+
+        const updated = Object.assign(user, data, { updatedAt: new Date() } as any);
+        return await this.userRepository.update(id, updated);
+    }
+
     async execute(id: string): Promise<void> {
         await this.userRepository.delete(id);
     }
