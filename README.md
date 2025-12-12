@@ -9,6 +9,8 @@ Aqui serão armazenadas as entregas e atividades realizadas ao longo do curso po
 
 - **Entrega 1:** [NestJS (Hello World em Docker + Kubernetes)](https://github.com/victorleafar/ufbank-project-mata57/tree/main/nestjs-hello-world-main)
 - **Entrega 2:** [Estruturação Arquitetural (Clean Architecture + Modularização)](https://github.com/victorleafar/ufbank-project-mata57/tree/main/nestjs-clean-architecture)
+- **Entrega 3:** [CRUD — Usuários/Clientes](https://github.com/victorleafar/ufbank-project-mata57/tree/main/nestjs-clean-architecture)  
+  Esta entrega foi desenvolvida utilizando a **mesma base arquitetural da Entrega 2**, que segue os princípios de **Clean Architecture** e **modularização**. Nesta etapa, foi implementado o **CRUD de usuarios Clientes**.
 
 ---
 
