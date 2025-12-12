@@ -1,17 +1,51 @@
 version: '3.8'
 
 services:
-  app:
+  ufbank-api:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: ufbank-api
     ports:
       - '3000:3000'
+      - '3002:3002'
     environment:
       NODE_ENV: development
+      PORT: 3000
+
+      PAGAMENTOS_HOST: pagamentos-service
+      PAGAMENTOS_PORT: 3001
     volumes:
       - .:/usr/src/app
+      - ./dist:/usr/src/app/dist
+    depends_on:
+      - pagamentos-service
+    networks:
+      - ufbank-network
     command: npm run start:dev
+  
+  pagamentos-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.pagamentos
+    container_name: ufbank-pagamentos-service
+    ports:
+      - '3001:3001'
+    environment:
+      NODE_ENV: development
+      PAGAMENTOS_HOST: 0.0.0.0
+      PAGAMENTOS_PORT: 3001
+      
+      UFBANK_HOST: ufbank-api
+      UFBANK_EVENT_PORT: 3002
+    volumes:
+      - ./pagamentos-service:/usr/src/app/pagamentos-service
+      - ./dist-pagamentos:/usr/src/app/dist-pagamentos
+    networks:
+      - ufbank-network
+    restart: unless-stopped
+    
+    command: npm run start:pagamentos
 
 networks:
   default:

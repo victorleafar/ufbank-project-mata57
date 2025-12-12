@@ -1,0 +1,23 @@
+
+FROM node:18-alpine AS builder
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+COPY tsconfig.pagamentos.json ./
+
+RUN npm install
+
+COPY pagamentos-service/ ./pagamentos-service/
+
+RUN npm run build:pagamentos
+
+ENV NODE_ENV=production
+ENV PAGAMENTOS_HOST=0.0.0.0
+ENV PAGAMENTOS_PORT=3001
+ENV UFBANK_HOST=ufbank-api
+ENV UFBANK_EVENT_PORT=3002
+
+EXPOSE 3001
+
+CMD ["node", "dist-pagamentos/main.js"]
