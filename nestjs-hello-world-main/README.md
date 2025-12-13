@@ -71,6 +71,15 @@ docker-compose up
 
 A aplicação ficará acessível em: http://localhost:3000
 
+## Execução via Docker Compose
+
+1. Certifique que o Docker está em execução;
+2. Navegue até o diretório do projeto:
+	- cd nestjs-hello-world-main
+3. Inicie via Docker Compose com a porta mapeada para 3003 no host (evitando conflito com outro serviço):
+	- docker compose up --build
+4. A aplicação ficará acessível em: http://localhost:3003
+
 ## 5. Fazer deploy no Kubernetes
 ### 5.1. Iniciar o Minikube (se usar Minikube)
 

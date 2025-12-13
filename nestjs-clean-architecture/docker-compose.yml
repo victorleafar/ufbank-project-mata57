@@ -15,12 +15,15 @@ services:
 
       PAGAMENTOS_HOST: pagamentos-service
       PAGAMENTOS_PORT: 3001
+      UFBANK_EVENT_HOST: 0.0.0.0
+      UFBANK_EVENT_PORT: 3002
     volumes:
       - .:/usr/src/app
       - ./dist:/usr/src/app/dist
     depends_on:
       - pagamentos-service
     networks:
+      - default
       - ufbank-network
     command: npm run start:dev
   
@@ -38,15 +41,15 @@ services:
       
       UFBANK_HOST: ufbank-api
       UFBANK_EVENT_PORT: 3002
-    volumes:
-      - ./pagamentos-service:/usr/src/app/pagamentos-service
-      - ./dist-pagamentos:/usr/src/app/dist-pagamentos
+    # Executando em modo production: não monte volumes que sobrescrevam build
+    # Para desenvolvimento, comente as linhas abaixo e use `command: npm run start:pagamentos`.
     networks:
+      - default
       - ufbank-network
     restart: unless-stopped
-    
-    command: npm run start:pagamentos
 
 networks:
   default:
+    driver: bridge
+  ufbank-network:
     driver: bridge

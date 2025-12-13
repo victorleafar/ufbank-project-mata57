@@ -38,6 +38,19 @@ Entrega: estrutura base de um projeto NestJS seguindo Clean Architecture + modul
 3. Acessar:
    - GET http://localhost:3000/  → resposta: "hello world!"
 
+  ## Como executar com Docker
+
+  1. Certifique-se que o Docker está rodando na sua máquina.
+  2. Navegue para a pasta do projeto:
+    - cd nestjs-clean-architecture
+  3. Para iniciar os serviços (UFBank API + Pagamentos) em modo desenvolvimento:
+    - docker compose up --build
+  4. Acesse a API em:
+    - UFBank API: http://localhost:3000
+    - Pagamentos (TCP): porta 3001 (comunicação via TCP entre containers)
+  5. Para parar os serviços:
+    - docker compose down
+
 ## Observações
 - Projeto pensado como base para evoluir: novos casos de uso, entidades e integrações de infra devem seguir a divisão modular apresentada.
 - Não foram adicionadas integrações com banco de dados ou serviços externos — pasta `infra` serve como local para esses ajustes futuros.

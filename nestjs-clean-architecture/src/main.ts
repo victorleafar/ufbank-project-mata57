@@ -7,23 +7,27 @@ async function bootstrap() {
   const logger = new Logger('Main');
   const app = await NestFactory.create(AppModule);
 
+  const paymentEventHost = process.env.UFBANK_EVENT_HOST || '0.0.0.0';
+  const paymentEventPort = parseInt(process.env.UFBANK_EVENT_PORT || '3002');
+
   app.connectMicroservice<MicroserviceOptions>({
         transport: Transport.TCP,
         options: {
-            host: 'localhost',
-            port: 3002,
+            host: paymentEventHost,
+            port: paymentEventPort,
         },
     });
 
   await app.startAllMicroservices();
 
-  await app.listen(3000);
+  const port = parseInt(process.env.PORT || '3000');
+  await app.listen(port, '0.0.0.0');
 
     logger.log(`═══════════════════════════════════════════════════════════════`);
     logger.log(`UFBank API iniciada com sucesso!`);
     logger.log(`═══════════════════════════════════════════════════════════════`);
-    logger.log(`HTTP Server: http://localhost:${3000}`);
-    logger.log(`TCP Listener: porta 3002 (escutando eventos)`);
+    logger.log(`HTTP Server: http://0.0.0.0:${port}`);
+    logger.log(`TCP Listener: porta ${paymentEventPort} (escutando eventos)`);
     logger.log(`───────────────────────────────────────────────────────────────`);
     logger.log(`Endpoints HTTP disponíveis:`);
     logger.log(`   GET  /              - Hello World`);
