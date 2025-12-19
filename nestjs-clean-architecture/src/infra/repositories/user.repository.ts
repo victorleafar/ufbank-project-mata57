@@ -20,6 +20,11 @@ export class UserRepository implements IUserRepository {
         return user ?? null;
     }
 
+    async findByCpf(cpf: string): Promise<User | null> {
+        const user = this.users.find(u => u.cpf === cpf);
+        return user ?? null;
+    }
+
     async delete(id: string): Promise<void> {
         this.users = this.users.filter(u => u.id !== id);
     }

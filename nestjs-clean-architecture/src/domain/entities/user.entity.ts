@@ -7,8 +7,6 @@ export class User {
         public readonly phone: string,
         public readonly createdAt: Date
     ) {
-        if (!name || name.trim().length < 3) {
-            throw new Error('Nome deve ter no mínimo 3 caracteres');
-        }
+        
     }
 }
